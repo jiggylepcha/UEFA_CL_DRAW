@@ -66,14 +66,14 @@ def allocate():
 				indices_done.append(r)
 				boole=1
 			r = randint(0, len(leagueLeaders)-1)
-		#print("jije",tmp.getName())
+		#print("jije",tmp.name)
 		add+=1
 		if counter == 1:
-			#print("Choosing the first club", tmp.getName())
+			#print("Choosing the first club", tmp.name)
 			groupA.append(tmp)
 			counter += 1
 		elif counter == 2:
-			#print("Choosing the second club", tmp.getName())
+			#print("Choosing the second club", tmp.name)
 			groupB.append(tmp)
 			counter += 1
 		elif counter == 3:
@@ -111,7 +111,7 @@ def allocate():
 				indices_done.append(r)
 				boole=1
 			r = randint(0, len(otherTeams)-1)
-		#print("thug1", tmp.getName())
+		#print("thug1", tmp.name)
 		add+=1
 		if count >= 1 and count <= 3 and checkCountryConflict('A',tmp) == True:
 			groupA.append(tmp)
@@ -139,89 +139,101 @@ def allocate():
 			count += 1
 		else:
 			otherTeams.append(tmp)
+
+	# Another logic
+	# tempList = list()
+	# for i in otherTeams:
+	# 	if groupA[0].country != i.country:
+	# 		tempList.append(i)
+	# for k in range (1,3):
+	# 	r = randint(0, len(tempList)-1)
+	# 	tmp = tempList.pop(r)
+	# 	groupA.append(tmp)
+
+
 	printGroup()
 
 def checkCountryConflict(groupID, team):
 	if groupID == 'A':
 		for i in groupA:
-			if i.getCountry() == team.getCountry():
+			if i.country == team.country:
 				return False
 		return True
 	elif groupID == 'B':
 		for i in groupB:
-			if i.getCountry() == team.getCountry():
+			if i.country == team.country:
 				return False
 		return True
 	elif groupID == 'C':
 		for i in groupC:
-			if i.getCountry() == team.getCountry():
+			if i.country == team.country:
 				return False
 		return True
 	elif groupID == 'D':
 		for i in groupD:
-			if i.getCountry() == team.getCountry():
+			if i.country == team.country:
 				return False
 		return True
 	elif groupID == 'E':
 		for i in groupE:
-			if i.getCountry() == team.getCountry():
+			if i.country == team.country:
 				return False
 		return True
 	elif groupID == 'F':
 		for i in groupF:
-			if i.getCountry() == team.getCountry():
+			if i.country == team.country:
 				return False
 		return True
 	elif groupID == 'G':
 		for i in groupG:
-			if i.getCountry() == team.getCountry():
+			if i.country == team.country:
 				return False
 		return True
 	elif groupID == 'H':
 		for i in groupH:
-			if i.getCountry() == team.getCountry():
+			if i.country == team.country:
 				return False
 		return True
 
 def printGroup():
 	print("Group A\n")
 	for i in groupA:
-		print(i.getName())
+		print(i.name)
 	print("\n")
 	print("Group B")
 	print("\n")
 	for i in groupB:
-		print(i.getName())
+		print(i.name)
 	print("\n")
 	print("Group C")
 	print("\n")
 	for i in groupC:
-		print(i.getName())
+		print(i.name)
 	print("\n")
 	print("Group D")
 	print("\n")
 	for i in groupD:
-		print(i.getName())
+		print(i.name)
 	print("\n")
 	print("Group E")
 	print("\n")
 	for i in groupE:
-		print(i.getName())
+		print(i.name)
 	print("\n")
 	print("Group F")
 	print("\n")
 	for i in groupF:
-		print(i.getName())
+		print(i.name)
 	print("\n")
 	print("Group G")
 	print("\n")
 	for i in groupG:
-		print(i.getName())
+		print(i.name)
 	print("\n")
 	print("Group H")
 	print("\n")
 	for i in groupH:
-		print(i.getName())
+		print(i.name)
 	print("\n")
 
 if __name__ == '__main__':
