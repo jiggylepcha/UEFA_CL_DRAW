@@ -7,6 +7,7 @@ class Club:
 		self.leaguePosition=leaguePosition
 
 qualifiedClubs = list()
+otherTeams = list()
 groups = {'A':list(),'B':list(),'C':list(),'D':list(),'E':list(),'F':list(),'G':list(),'H':list()}
 
 def main():
@@ -20,7 +21,6 @@ def main():
 
 def allocate():
 	leagueLeaders = list()
-	otherTeams = list()
 	for i in qualifiedClubs:
 		if (i.leaguePosition == "1"):
 			#print("Checked the league leaders")
@@ -43,10 +43,11 @@ def allocate():
 		groupID = findGroupID(count)
 		#print("Random Team: ",team.name)
 		key = groups.keys()
-		checkCountryConflict(groupID, team)
-		count += 1
-		i = otherTeams.index(team)
-		del otherTeams[i]
+		check = checkCountryConflict(groupID, team)
+		if (check == True):
+			count += 1
+			i = otherTeams.index(team)
+			del otherTeams[i]
 
 	printGroups()
 
@@ -89,11 +90,11 @@ def putGroup(team, counter):
 def checkCountryConflict(groupID, team):
 	for i in list(groups.keys()):
 		if groupID == i:
+			#print("Found Group ID ",i)
 			for j in groups[i]:
 				if j.country != team.country:
 					groups[i].append(team)
-					break
-			break
+					return True
 
 
 def printGroups():
