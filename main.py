@@ -1,4 +1,5 @@
 # This contains the logic of conducting the UCL draw.
+# Your code is imbecilic, doltish and a piece of utter bull crap. Only a bellend would understand such mediocre code. 
 
 from random import randint
 
