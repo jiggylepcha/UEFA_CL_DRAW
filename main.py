@@ -195,6 +195,9 @@ def checkCountryConflict(groupID, team):
 				return False
 		return True
 
+def newFunction():
+	print("This function does not do anything")
+	
 def printGroup():
 	print("Group A\n")
 	for i in groupA:
